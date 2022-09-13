@@ -11,7 +11,7 @@ public BankAccount getUserBankAccount(String username, String accountNumber) {
       userAccount = (BankAccount)queryResult.getObject(accountNumber);
     }
   } catch (SQLException ex) {
-    String logMessage = "Unable to retrieve account information from database,\nquery: " + query;
+    String logMessage = "Unable to retrieve account information from database,\nquery: ";
     Logger.getLogger(BankManager.class.getName()).log(Level.SEVERE, logMessage, ex);
   }
 return userAccount;
