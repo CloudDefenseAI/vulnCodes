@@ -13,6 +13,10 @@ public void resetPassword(User requestingUser, User user, String password ){
       System.out.println("You are not authorized to perform this command");
       break;
 
+      case OPERATOR:
+      System.out.println("You are not authorized to perform this command");
+      break;
+
       default:
       setPassword(user,password);
       break;
