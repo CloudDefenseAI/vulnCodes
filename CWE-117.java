@@ -49,7 +49,6 @@ public class CreateNote extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);
-                Log.d("STORED_NOTES", notes.toString());
             }
         }
 
