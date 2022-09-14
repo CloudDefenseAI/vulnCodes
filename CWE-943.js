@@ -12,9 +12,10 @@ http.get(options, function(res) {
 });
 
 http.createServer(function(req, res) {
-    const user_id = req.query.user_id;
+    const session = req.session;
+    const session_user_id = session.user_id;
     var path = '/api/v1/query?query=';
-    var query = 'select * from users where user_id = ' + user_id;
+    var query = 'select * from users where user_id = ' + session_user_id;
     var options = {
         host: host,
         port: port,
