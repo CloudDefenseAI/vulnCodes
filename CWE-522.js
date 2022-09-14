@@ -1,5 +1,6 @@
 app.post('/api/users/change-password', function(req, res) {
-    var userId = req.body.userId;
+    const session = req.session;
+    const userId = session.userId;
     var password = req.body.password;
     var user = app.models.user;
     user.ChangePassword(userId, password, function(err, result) {
