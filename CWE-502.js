@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
    var str = new Buffer(req.cookies.profile, 'base64').toString();
    var obj = serialize.unserialize(str);
    if (obj.username) {
-     res.send("Hello " + obj.username);
+     res.send("Hello " + escape(obj.username));
    }
  } else {
      res.cookie('profile', "eyJ1c2VybmFtZSI6IkFkaXR5YSIsImNvdW50cnkiOiJpbmRpYSIsImNpdHkiOiJEZWxoaSJ9", {
