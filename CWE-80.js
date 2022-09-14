@@ -11,3 +11,7 @@ app.get('/save-profile', function(req, res) {
     
     res.send(`Name: ${name} Age: ${age} Email: ${email} Phone: ${phone} Address: ${address} City: ${city}`);
 });
+
+app.listen(3000, function() {
+    console.log('App listening on port 3000!');
+})
