@@ -5,8 +5,7 @@ const options = {
     hostname: 'localhost',
     port: 443,
     path: '/test',
-    method: 'GET',
-    rejectUnauthorized: false
+    method: 'GET'
 };
 
 const req = https.request(options, (res) => {
