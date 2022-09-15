@@ -18,8 +18,17 @@ def main():
     headers = {
         "Content-Type": "application/xml"
     }
+    ## first check payload for XXE
+    if payload.find("DOCTYPE") != -1:
+        print("XXE attack detected")
+        sys.exit(1)
+
+    if payload.find("ENTITY") != -1:
+        print("XXE attack detected")
+        sys.exit(1)
+    
     r = requests.post("https://api.website.com/data.php", data=payload, headers=headers)
     print(r.text)
-
+    
 if __name__ == "__main__":
     main()
