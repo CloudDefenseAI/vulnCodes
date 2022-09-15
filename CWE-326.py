@@ -1,4 +1,4 @@
-import requests, json, sys, os, base64
+import requests, json, sys, os, bcrypt
 
 url = "http://localhost:8080"
 headers = {'Content-Type': 'application/json'}
@@ -6,7 +6,7 @@ headers = {'Content-Type': 'application/json'}
 def signup(username, password):
     data = {
         "username": username,
-        "password": base64.b64encode(password.encode("ascii")),
+        "password": bcrypt.hashpw(password.encode("ascii"), bcrypt.gensalt()),
     }
     r = requests.post(url + "/signup", headers=headers, data=json.dumps(data))
     return r
@@ -14,7 +14,7 @@ def signup(username, password):
 def login(username, password):
     data = {
         "username": username,
-        "password": base64.b64encode(password.encode("ascii")),
+        "password": bcrypt.hashpw(password.encode("ascii"), bcrypt.gensalt()),
     }
     r = requests.post(url + "/login", headers=headers, data=json.dumps(data))
     return r
