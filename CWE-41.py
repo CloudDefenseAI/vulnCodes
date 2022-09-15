@@ -10,10 +10,16 @@ def main():
     url = sys.argv[1]
     filename = sys.argv[2]
 
+    filename = os.path.basename(filename)
+    filename = filename.replace("../", "")
+    filename = filename.replace("..\\", "")
+    filename = filename.replace("%2e%2e%2f", "")
+    filename = filename.replace("%2e%2e%5c", "")
+
     if not os.path.exists(filename):
         print("File %s does not exist" % filename)
         sys.exit(1)
-
+    
     with open(filename) as f:
         data = f.read()
 
