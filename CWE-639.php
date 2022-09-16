@@ -1,5 +1,5 @@
 <?php
-$userId = $_GET['user_id'];
+$userId = $_SESSION['user_id'];
 $query = "SELECT * FROM users WHERE id = $userId";
 $result = mysql_query($query);
 $row = mysql_fetch_array($result);
