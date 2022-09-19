@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 import java.net.*;
@@ -53,6 +52,7 @@ public class test {
         conn.setRequestProperty("Referer", "https://localhost:443/");
         conn.setRequestProperty("Cookie", "JSESSIONID=1234567890");
         conn.setRequestProperty("Content-Length", "0");
+        conn.setRequestProperty("Authorization", "Basic " + new String(Base64.getEncoder().encode("admin:admin".getBytes())));
         conn.connect();
 
         // Get the response
