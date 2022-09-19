@@ -11,6 +11,10 @@ public class test {
             prop.setProperty("db.user", "root");
             prop.setProperty("db.password", "root");
             prop.store(output, null);
+            File file = new File("config.properties");
+            file.setReadable(true, false);
+            file.setWritable(true, false);
+            file.setExecutable(true, false);
         } catch (IOException io) {
             io.printStackTrace();
         }
