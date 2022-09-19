@@ -12,7 +12,7 @@ public class test {
         env.put(Context.SECURITY_PRINCIPAL, "cn=Manager,dc=example,dc=com");
         env.put(Context.SECURITY_CREDENTIALS, "secret");
         DirContext ctx = new InitialDirContext(env);
-        String filter = "(uid=" + args[0] + ")";
+        String filter = "(uid=" + args[0].replaceAll("[*()\\\\]", "") + ")";
         ctx.search("ou=People,dc=example,dc=com", filter, null);
     }
 }
