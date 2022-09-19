@@ -12,7 +12,9 @@ public class test extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println(" " + request.getParameter("message") + " ");
+            if(request.getHeader("referer") != null && request.getHeader("referer").contains("trusteddomain.com")){
+                out.println(" " + request.getParameter("message") + " ");
+            }
         }
     }
     
