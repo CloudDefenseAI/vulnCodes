@@ -16,6 +16,8 @@ public class test extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String name = request.getParameter("name");
+            name = name.replaceAll("\r", "");
+            name = name.replaceAll("\n", "");
             logger.info(name);
         } finally {
             out.close();
