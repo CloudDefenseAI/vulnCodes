@@ -4,7 +4,7 @@ public class test {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of times you want to print your name");
         int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n && i < 2000; i++) {
             System.out.println("My name is " + i);
         }
     }
