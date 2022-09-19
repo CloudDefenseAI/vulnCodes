@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * Servlet implementation class test
@@ -44,14 +45,14 @@ public class test extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
             PreparedStatement ps = con.prepareStatement("insert into test values(?,?,?)");
             ps.setString(1, name);
             ps.setString(2, email);
-            ps.setString(3, encodedPassword);
+            ps.setString(3, hashed);
             int i = ps.executeUpdate();
             if(i>0) {
                 PrintWriter out = response.getWriter();
