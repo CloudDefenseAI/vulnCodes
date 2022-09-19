@@ -1,4 +1,12 @@
 String ctl = request.getParameter("ctl");
-Class cmdClass = Class.forName(ctl + "Command");
-Worker ao = (Worker) cmdClass.newInstance();
+Worker ao = null;
+if (ctl.equals("Add")) {
+  ao = new AddCommand();
+}
+else if (ctl.equals("Modify")) {
+  ao = new ModifyCommand();
+}
+else {
+  throw new UnknownActionError();
+}
 ao.doAction(request);
