@@ -1,4 +1,4 @@
-public void removeDatabase(String databaseName) {
+private void removeDatabase(String databaseName) {
   try {
     Statement stmt = conn.createStatement();
     stmt.execute("DROP DATABASE " + databaseName);
