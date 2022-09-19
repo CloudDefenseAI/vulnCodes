@@ -12,9 +12,9 @@ import javax.crypto.IllegalBlockSizeException;
 public class SymmetricCipherTest {
     public static void main() {
         byte[] text ="Secret".getBytes();
-        byte[] iv ={
-            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
-        };
+        SecureRandom sr = new SecureRandom();
+        byte[] iv = new byte[8];
+        sr.nextBytes(iv);
         KeyGenerator kg = KeyGenerator.getInstance("DES");
         kg.init(56);
         SecretKey key = kg.generateKey();
