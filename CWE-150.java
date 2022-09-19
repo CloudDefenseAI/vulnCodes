@@ -9,5 +9,11 @@ public class test extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
-        out.println("Hello " + name);
+        // alow only specific characters like - dot or comma or space or alphanumeric characters if something else then error
+        if (name.matches("[a-zA-Z0-9.,- ]+")) {
+            out.println("Hello " + name);
+        } else {
+            out.println("You can use only dot comma or space or alphanumeric characters, rest are not allowed");
+        }
     }
+}
