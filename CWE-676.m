@@ -3,7 +3,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         char str[100];
-        gets(str);
+        gets_s(str, 100);
     }
     return 0;
 }
