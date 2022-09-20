@@ -4,8 +4,6 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         NSLog(@"Hello, World!");
-        NSLog(@"Username: %@", @"admin");
-        NSLog(@"Password: %@", @"admin");
     }
     return 0;
 }
