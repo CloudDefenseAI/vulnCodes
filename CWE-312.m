@@ -15,6 +15,7 @@ int main(int argc, const char * argv[]) {
         [keychainItem setObject:username forKey:(__bridge id)kSecAttrLabel];
         [keychainItem setObject:password forKey:(__bridge id)kSecValueData];
         [keychainItem setObject:(__bridge id)kSecAttrAccessibleWhenUnlocked forKey:(__bridge id)kSecAttrAccessible];
+        [keychainItem setObject:(__bridge id)kSecAttrAccessibleWhenUnlockedThisDeviceOnly forKey:(__bridge id)kSecAttrAccessible];
         OSStatus status = SecItemAdd((__bridge CFDictionaryRef)keychainItem, NULL);
         if (status == errSecSuccess) {
             NSLog(@"Successfully added the %@/%@ keychain item.", keychainItemServiceName, keychainItemName);
