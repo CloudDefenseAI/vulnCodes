@@ -12,7 +12,7 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
     NSString *name = @"<script>alert('XSS');</script>";
-    NSString *html = [NSString stringWithFormat:@"<html><body><h1>Hello %@</h1></body></html>", name];
+    NSString *html = [NSString stringWithFormat:@"<html><body><h1>Hello %@</h1></body></html>", [name stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
     [webView loadHTMLString:html baseURL:nil];
 }
 
