@@ -10,8 +10,11 @@ namespace Test
         {
             string path = "test.txt";
             string[] lines = File.ReadAllLines(path);
-            string line = lines[1];
-            Console.WriteLine(line);
+            if (lines.Length > 1)
+            {
+                string line = lines[1];
+                Console.WriteLine(line);
+            }
         }
     }
 }
