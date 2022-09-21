@@ -14,7 +14,7 @@ namespace Test
             string url = "https://www.example.com";
             string cookie = "cookie";
             string value = "value";
-            string cookieValue = cookie + "=" + value;
+            string cookieValue = cookie + "=" + value + "; Secure";
             string cookieHeader = "Cookie: " + cookieValue;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
