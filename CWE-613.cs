@@ -23,7 +23,7 @@ namespace JWT
                 issuer: "https://localhost:5001",
                 audience: "https://localhost:5001",
                 claims: claims,
-                expires: null,
+                expires: DateTime.Now.AddHours(1),
                 signingCredentials: creds);
 
             Console.WriteLine(new JwtSecurityTokenHandler().WriteToken(token));
