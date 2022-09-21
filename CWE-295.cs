@@ -12,7 +12,7 @@ namespace Test
         {
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://www.google.com");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.com");
             request.Method = "GET";
             request.ContentType = "application/json";
             request.Accept = "application/json";
