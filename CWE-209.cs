@@ -19,7 +19,7 @@ namespace WebApplication1
             // runn getUser from username, password
             if (getUser(username, password)['email'] != email)
             {
-                Response.Write("Invalid username or password, please try again, this email is associated with " + getUser(username, password)['email']);
+                Response.Write("Invalid username or password, please try again");
             }else{
                 Response.Write("Welcome " + username);
             }
