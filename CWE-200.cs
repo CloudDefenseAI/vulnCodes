@@ -16,6 +16,13 @@ public partial class _Default : System.Web.UI.Page
         string password = Request["password"];
         string callback = Request["callback"];
         string token = FormsAuthentication.HashPasswordForStoringInConfigFile(username + password, "SHA1");
-        Response.Redirect(callback + "?token=" + token);
+        if (callback == "http://localhost:8080/Default.aspx")
+        {
+            Response.Redirect(callback + "?token=" + token);
+        }
+        else
+        {
+            Response.Redirect("http://localhost:8080/Default.aspx");
+        }
     }
 }
