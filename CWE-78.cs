@@ -9,7 +9,7 @@ namespace test
         {
             Console.WriteLine("Enter your name");
             string name = Console.ReadLine();
-            Process.Start("cmd.exe", "/c echo " + name);
+            Process.Start("cmd.exe", "/c echo " + name.Replace(" ", ""));
         }
     }
 }
