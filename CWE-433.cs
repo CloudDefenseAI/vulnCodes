@@ -12,7 +12,7 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             string json = Request.QueryString["json"];
-            Response.Write(json);
+            Response.Write(Server.HtmlEncode(json));
         }
     }
 }
